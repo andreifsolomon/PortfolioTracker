@@ -1,0 +1,5 @@
+quantity, stockName,stockPrice
++1,SPY,100
++1,SPY,102
++1,SPY,105
+-3,SPY,115
