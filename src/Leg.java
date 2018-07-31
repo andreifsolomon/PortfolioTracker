@@ -1,3 +1,5 @@
+import mBret.options.BlackScholesFormula;
+
 public class Leg {
 	
 	private String time;
@@ -7,7 +9,7 @@ public class Leg {
 	private String posEffect;
 	private String symbol;
 	private String expiration;
-	private String strike;
+	private double strike;
 	private String type;
 	private Double price;
 	private String status;
@@ -18,7 +20,7 @@ public class Leg {
 	}
 
 	public Leg(String time, String spread, String side, int quantity, String posEffect, String symbol,
-			String expiration, String strike, String type, Double price, String status, String fillType, char sign) {
+			String expiration, double strike, String type, Double price, String status, String fillType, char sign) {
 		super();
 		this.time = time;
 		this.spread = spread;
@@ -93,11 +95,11 @@ public class Leg {
 		this.expiration = expiration;
 	}
 
-	public String getStrike() {
+	public double getStrike() {
 		return strike;
 	}
 
-	public void setStrike(String strike) {
+	public void setStrike(double strike) {
 		this.strike = strike;
 	}
 
@@ -141,6 +143,12 @@ public class Leg {
 		this.sign = sign;
 	}
 
+	public Double getMatketValueAt(double spotPrice) {
+		boolean callOption = this.type.equals("CALL");
+//		BlackScholesFormula.calculate(callOption, spotPrice, this.strike, r, t, v)
+		return 0.0;
+	}
+	
 	public String toString() {
 //		Notes,Time Placed,Spread,Side,Qty,Pos Effect,Symbol,Exp,Strike,Type,PRICE,Fill Type,TIF,Status
 //		Side,Qty,Pos Effect,Symbol,Exp,Strike,Type,PRICE

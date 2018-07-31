@@ -15,7 +15,7 @@ public class BasicCSVReader {
 				CSVParser csvRecords = new CSVParser(reader,
 						CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
 
-			ArrayList<Leg> stocks = new ArrayList<>();
+			ArrayList<Order> orders = new ArrayList<>();
 
 			Order currentOrder = null;
 			
@@ -43,6 +43,7 @@ public class BasicCSVReader {
 					
 					if(currentOrder != null) {
 						System.out.println(currentOrder + "\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+						orders.add(currentOrder);
 					}
 					
 					currentOrder = new Order();
@@ -86,7 +87,7 @@ public class BasicCSVReader {
 				leg.setPosEffect(csvRecord.get("Pos Effect"));
 				leg.setSymbol(csvRecord.get("Symbol"));
 				leg.setExpiration(csvRecord.get("Exp"));
-				leg.setStrike(csvRecord.get("Strike"));
+				leg.setStrike(Double.parseDouble(csvRecord.get("Strike")));
 				leg.setType(csvRecord.get("Type"));
 
 				String price = csvRecord.get("PRICE");

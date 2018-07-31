@@ -173,6 +173,10 @@ public class Order {
 		}
 	}
 	
+	public Double getMatketValueAt() {
+		return 0.0;
+	}
+	
 	public String toString() {
 //		Notes,Time Placed,Spread,Side,Qty,Pos Effect,Symbol,Exp,Strike,Type,PRICE,Fill Type,TIF,Status
 		String legs = "";
